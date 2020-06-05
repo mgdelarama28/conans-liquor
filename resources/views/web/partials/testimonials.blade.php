@@ -1,4 +1,4 @@
-<section class="ftco-section testimony-section img" style="background-image: url(images/bg_4.jpg);">
+<section class="ftco-section testimony-section img" style="background-image: url('{{ asset('images/web/testimonials_banner.jpg') }}');">
     <div class="overlay"></div>
   <div class="container">
     <div class="row justify-content-center mb-5">

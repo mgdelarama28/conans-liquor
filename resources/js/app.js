@@ -24,6 +24,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('shopping-cart', require('./components/web/ShoppingCart.vue').default);
 Vue.component('checkout', require('./components/web/Checkout.vue').default);
 Vue.component('products', require('./components/web/Products.vue').default);
+Vue.component('product', require('./components/web/Product.vue').default);
 Vue.component('cart-icon', require('./components/web/CartIcon.vue').default);
 
 /**

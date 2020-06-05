@@ -36,7 +36,7 @@
 
         methods: {
             addToCart(id) {
-                axios.post('/api/v1/cart_item/' + id).then((res) => {
+                axios.post(`/api/v1/cart_item/${id}`).then((res) => {
                     EventBus.$emit('update-cart');
                     Swal.fire(
                         'Added to cart!',

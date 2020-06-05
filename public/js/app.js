@@ -2252,6 +2252,272 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Product.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/web/Product.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EventBus */ "./resources/js/EventBus.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {//
+  },
+  props: {
+    product: Object
+  },
+  methods: {
+    addToCart: function addToCart(id) {
+      var quantity = document.querySelector('#quantity').value;
+      axios.post('/api/v1/cart_item/' + id, {
+        quantity: quantity
+      }).then(function (res) {
+        _EventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('update-cart');
+        Swal.fire('Added to cart!', 'This item has been added to your cart.', 'success');
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Products.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/web/Products.vue?vue&type=script&lang=js& ***!
@@ -2296,7 +2562,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addToCart: function addToCart(id) {
-      axios.post('/api/v1/cart_item/' + id).then(function (res) {
+      axios.post("/api/v1/cart_item/".concat(id)).then(function (res) {
         _EventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('update-cart');
         Swal.fire('Added to cart!', 'This item has been added to your cart.', 'success');
       })["catch"](function (err) {
@@ -41652,6 +41918,622 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "ftco-section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-6 mb-5" }, [
+          _c(
+            "a",
+            {
+              staticClass: "image-popup prod-img-bg",
+              attrs: { href: "images/prod-1.jpg" }
+            },
+            [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: {
+                  src: "/storage/" + this.product.image_path,
+                  alt: "Colorlib Template"
+                }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-6 product-details pl-md-5" }, [
+          _c("h3", [_vm._v(_vm._s(this.product.name))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "rating d-flex" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-left" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "mr-2",
+                  staticStyle: { color: "#000" },
+                  attrs: { href: "#" }
+                },
+                [
+                  _vm._v(_vm._s(this.product.sold) + " "),
+                  _c("span", { staticStyle: { color: "#bbb" } }, [
+                    _vm._v("Sold")
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "price" }, [
+            _c("span", [_vm._v("$" + _vm._s(this.product.price))])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              '\n                        On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.\n                    '
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-4" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-100" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("p", { staticStyle: { color: "#000" } }, [
+                _vm._v(_vm._s(this.product.stock) + " piece/s available")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary py-3 px-5 mr-2",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.addToCart(_vm.product.id)
+                  }
+                }
+              },
+              [_vm._v("Add to Cart")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary py-3 px-5",
+                attrs: { href: "cart.html" }
+              },
+              [_vm._v("Buy now")]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-left mr-4" }, [
+      _c("a", { staticClass: "mr-2", attrs: { href: "#" } }, [_vm._v("5.0")]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("span", { staticClass: "fa fa-star" })
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("span", { staticClass: "fa fa-star" })
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("span", { staticClass: "fa fa-star" })
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("span", { staticClass: "fa fa-star" })
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("span", { staticClass: "fa fa-star" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-left mr-4" }, [
+      _c(
+        "a",
+        {
+          staticClass: "mr-2",
+          staticStyle: { color: "#000" },
+          attrs: { href: "#" }
+        },
+        [
+          _vm._v("100 "),
+          _c("span", { staticStyle: { color: "#bbb" } }, [_vm._v("Rating")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group col-md-6 d-flex mb-3" }, [
+      _c("span", { staticClass: "input-group-btn mr-2" }, [
+        _c(
+          "button",
+          {
+            staticClass: "quantity-left-minus btn",
+            attrs: { type: "button", "data-type": "minus", "data-field": "" }
+          },
+          [_c("i", { staticClass: "fa fa-minus" })]
+        )
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "quantity form-control input-number",
+        attrs: {
+          type: "text",
+          id: "quantity",
+          name: "quantity",
+          value: "1",
+          min: "1",
+          max: "100"
+        }
+      }),
+      _vm._v(" "),
+      _c("span", { staticClass: "input-group-btn ml-2" }, [
+        _c(
+          "button",
+          {
+            staticClass: "quantity-right-plus btn",
+            attrs: { type: "button", "data-type": "plus", "data-field": "" }
+          },
+          [_c("i", { staticClass: "fa fa-plus" })]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-5" }, [
+      _c("div", { staticClass: "col-md-12 nav-link-wrap" }, [
+        _c(
+          "div",
+          {
+            staticClass: "nav nav-pills d-flex text-center",
+            attrs: {
+              id: "v-pills-tab",
+              role: "tablist",
+              "aria-orientation": "vertical"
+            }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active mr-lg-1",
+                attrs: {
+                  id: "v-pills-1-tab",
+                  "data-toggle": "pill",
+                  href: "#v-pills-1",
+                  role: "tab",
+                  "aria-controls": "v-pills-1",
+                  "aria-selected": "true"
+                }
+              },
+              [_vm._v("Description")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "nav-link mr-lg-1",
+                attrs: {
+                  id: "v-pills-2-tab",
+                  "data-toggle": "pill",
+                  href: "#v-pills-2",
+                  role: "tab",
+                  "aria-controls": "v-pills-2",
+                  "aria-selected": "false"
+                }
+              },
+              [_vm._v("Manufacturer")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "v-pills-3-tab",
+                  "data-toggle": "pill",
+                  href: "#v-pills-3",
+                  role: "tab",
+                  "aria-controls": "v-pills-3",
+                  "aria-selected": "false"
+                }
+              },
+              [_vm._v("Reviews")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12 tab-wrap" }, [
+        _c(
+          "div",
+          {
+            staticClass: "tab-content bg-light",
+            attrs: { id: "v-pills-tabContent" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade show active",
+                attrs: {
+                  id: "v-pills-1",
+                  role: "tabpanel",
+                  "aria-labelledby": "day-1-tab"
+                }
+              },
+              [
+                _c("div", { staticClass: "p-4" }, [
+                  _c("h3", { staticClass: "mb-4" }, [
+                    _vm._v("Bacardi 151 Degree")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      'On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.'
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade",
+                attrs: {
+                  id: "v-pills-2",
+                  role: "tabpanel",
+                  "aria-labelledby": "v-pills-day-2-tab"
+                }
+              },
+              [
+                _c("div", { staticClass: "p-4" }, [
+                  _c("h3", { staticClass: "mb-4" }, [
+                    _vm._v("Manufactured By Liquor Store")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      'On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.'
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade",
+                attrs: {
+                  id: "v-pills-3",
+                  role: "tabpanel",
+                  "aria-labelledby": "v-pills-day-3-tab"
+                }
+              },
+              [
+                _c("div", { staticClass: "row p-4" }, [
+                  _c("div", { staticClass: "col-md-7" }, [
+                    _c("h3", { staticClass: "mb-4" }, [_vm._v("23 Reviews")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "review" }, [
+                      _c("div", {
+                        staticClass: "user-img",
+                        staticStyle: {
+                          "background-image": "url(images/person_1.jpg)"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "desc" }, [
+                        _c("h4", [
+                          _c("span", { staticClass: "text-left" }, [
+                            _vm._v("Jacob Webb")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _vm._v("25 April 2020")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "star" }, [
+                          _c("span", [
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" })
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _c(
+                              "a",
+                              { staticClass: "reply", attrs: { href: "#" } },
+                              [_c("i", { staticClass: "icon-reply" })]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "review" }, [
+                      _c("div", {
+                        staticClass: "user-img",
+                        staticStyle: {
+                          "background-image": "url(images/person_2.jpg)"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "desc" }, [
+                        _c("h4", [
+                          _c("span", { staticClass: "text-left" }, [
+                            _vm._v("Jacob Webb")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _vm._v("25 April 2020")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "star" }, [
+                          _c("span", [
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" })
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _c(
+                              "a",
+                              { staticClass: "reply", attrs: { href: "#" } },
+                              [_c("i", { staticClass: "icon-reply" })]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "review" }, [
+                      _c("div", {
+                        staticClass: "user-img",
+                        staticStyle: {
+                          "background-image": "url(images/person_3.jpg)"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "desc" }, [
+                        _c("h4", [
+                          _c("span", { staticClass: "text-left" }, [
+                            _vm._v("Jacob Webb")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _vm._v("25 April 2020")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "star" }, [
+                          _c("span", [
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fa fa-star" })
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-right" }, [
+                            _c(
+                              "a",
+                              { staticClass: "reply", attrs: { href: "#" } },
+                              [_c("i", { staticClass: "icon-reply" })]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "rating-wrap" }, [
+                      _c("h3", { staticClass: "mb-4" }, [
+                        _vm._v("Give a Review")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "star" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(
+                            "\n                                        (98%)\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("20 Reviews")])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "star" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(
+                            "\n                                        (85%)\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("10 Reviews")])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "star" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(
+                            "\n                                        (98%)\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("5 Reviews")])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "star" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(
+                            "\n                                        (98%)\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("0 Reviews")])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "star" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fa fa-star" }),
+                          _vm._v(
+                            "\n                                        (98%)\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("0 Reviews")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Products.vue?vue&type=template&id=73ab722a&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/web/Products.vue?vue&type=template&id=73ab722a& ***!
@@ -54172,6 +55054,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('shopping-cart', __webpack_require__(/*! ./components/web/ShoppingCart.vue */ "./resources/js/components/web/ShoppingCart.vue")["default"]);
 Vue.component('checkout', __webpack_require__(/*! ./components/web/Checkout.vue */ "./resources/js/components/web/Checkout.vue")["default"]);
 Vue.component('products', __webpack_require__(/*! ./components/web/Products.vue */ "./resources/js/components/web/Products.vue")["default"]);
+Vue.component('product', __webpack_require__(/*! ./components/web/Product.vue */ "./resources/js/components/web/Product.vue")["default"]);
 Vue.component('cart-icon', __webpack_require__(/*! ./components/web/CartIcon.vue */ "./resources/js/components/web/CartIcon.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -54434,6 +55317,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_e553a5e8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_e553a5e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/web/Product.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/web/Product.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue?vue&type=template&id=6c631bce& */ "./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce&");
+/* harmony import */ var _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product.vue?vue&type=script&lang=js& */ "./resources/js/components/web/Product.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/web/Product.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/web/Product.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/web/Product.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Product.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Product.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Product.vue?vue&type=template&id=6c631bce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/web/Product.vue?vue&type=template&id=6c631bce&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Product_vue_vue_type_template_id_6c631bce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

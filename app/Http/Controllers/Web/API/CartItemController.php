@@ -18,8 +18,15 @@ class CartItemController extends Controller
         $this->cart = $cart;
     }
 
-    public function store($id)
+    public function store(Request $request, $id)
     {
+
+        if ($request->quantity):
+            $quantity = $request->quantity;
+        else: 
+            $quantity = 1;
+        endif;
+
         $cart = $this->cart->getCart();
 
         $product = Product::find($id);
@@ -28,17 +35,18 @@ class CartItemController extends Controller
         if (!$cartItem):
             $cartItem = CartItem::create([
                 'product_id' => $product->id,
-                'cart_id' => $cart->id,	
+                'cart_id' => $cart->id,
+                'quantity' => $quantity,	
                 'total' => $product->price,
             ]);
         else:
-            $cartItem->quantity += 1;
+            $cartItem->quantity += $quantity;
             $cartItem->total = $cartItem->quantity * $cartItem->product->price;
             $cartItem->save();
         endif;
-                
+
         return response()->json([
-            'cart' => $cart->with('cartItems')->get(),
+            'cart' => $cart,
         ]);
     }
 
