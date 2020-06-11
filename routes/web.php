@@ -16,6 +16,7 @@ Route::namespace('Web')->name('web.')->group(function() {
 	Route::get('/products/{id}', 'ProductController@show')->name('products.show');
 	Route::get('/shopping-cart', 'CartController@index')->name('cart.index');
 	Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
+	Route::get('/contact-us', 'PageController@contact')->name('contact');
 
 	Route::namespace('API')->name('api.')->prefix('api')->group(function() {
 		Route::post('v1/cart_item/{id}', 'CartItemController@store')->name('cart_items.store');

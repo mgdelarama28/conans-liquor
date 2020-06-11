@@ -19,4 +19,9 @@ class PageController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function contact()
+    {
+        return view('web.pages.contact');
+    }
 }

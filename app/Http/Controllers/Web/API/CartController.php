@@ -23,6 +23,8 @@ class CartController extends Controller
 
         $subtotal = 0;
 
+        // dd($cart->session_id);
+
         // foreach($cart->cartItems as $cartItem):
         //     $subtotal += $cartItem->total;
         // endforeach;

@@ -30,10 +30,10 @@ class CartItemController extends Controller
         $cart = $this->cart->getCart();
 
         $product = Product::find($id);
-        $cartItem = CartItem::where('product_id', $product->id)->first();
+        $cartItem = CartItem::where(['product_id' => $product->id, 'cart_id' => $cart->id])->first();
 
         if (!$cartItem):
-            $cartItem = CartItem::create([
+            $cart->cartItem = CartItem::create([
                 'product_id' => $product->id,
                 'cart_id' => $cart->id,
                 'quantity' => $quantity,	

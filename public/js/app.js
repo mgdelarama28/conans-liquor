@@ -2693,12 +2693,11 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    updateCartItemQuantity: function updateCartItemQuantity(id) {
+    updateCartItemQuantity: function updateCartItemQuantity(cartItem) {
       var _this2 = this;
 
-      var quantity = document.querySelector('#quantity').value;
-      axios.post("/api/v1/cart_item/".concat(id, "/update"), {
-        quantity: quantity
+      axios.post("/api/v1/cart_item/".concat(cartItem.id, "/update"), {
+        quantity: cartItem.quantity
       }).then(function (res) {
         _EventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('update-cart');
 
@@ -42705,18 +42704,35 @@ var render = function() {
                         _c("td", { staticClass: "quantity" }, [
                           _c("div", { staticClass: "input-group" }, [
                             _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: cartItem.quantity,
+                                  expression: "cartItem.quantity"
+                                }
+                              ],
                               staticClass: "form-control text-center",
                               attrs: {
                                 type: "number",
                                 name: "quantity",
-                                id: "quantity",
                                 min: "1",
                                 max: "100"
                               },
                               domProps: { value: cartItem.quantity },
                               on: {
                                 change: function($event) {
-                                  return _vm.updateCartItemQuantity(cartItem.id)
+                                  return _vm.updateCartItemQuantity(cartItem)
+                                },
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    cartItem,
+                                    "quantity",
+                                    $event.target.value
+                                  )
                                 }
                               }
                             })

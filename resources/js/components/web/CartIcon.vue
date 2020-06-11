@@ -1,6 +1,6 @@
 <template>
     <div class="order-lg-last btn-group">
-        <a href="/shopping-cart" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a :href="`/shopping-cart`" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="flaticon-shopping-bag"></span>
             <div class="d-flex justify-content-center align-items-center"><small>{{ cart.cart_items.length }}</small></div>
         </a>
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <a class="dropdown-item text-center btn-link d-block w-100" href="/shopping-cart" v-if="cart.cart_items.length > 0">
+            <a class="dropdown-item text-center btn-link d-block w-100" :href="`/shopping-cart`" v-if="cart.cart_items.length > 0">
                 View All
                 <span class="ion-ios-arrow-round-forward"></span>
             </a>

@@ -32,7 +32,7 @@
                               
                                 <td class="quantity">
                                         <div class="input-group">
-                                        <input type="number" name="quantity" class="form-control text-center" id="quantity" :value="cartItem.quantity" min="1" max="100" @change="updateCartItemQuantity(cartItem.id)">
+                                        <input type="number" name="quantity" class="form-control text-center" v-model="cartItem.quantity" min="1" max="100" @change="updateCartItemQuantity(cartItem)">
                                     </div>
                                 </td>
                               
@@ -110,11 +110,9 @@
                 });
             },
 
-            updateCartItemQuantity(id) {
-                let quantity = document.querySelector('#quantity').value;
-
-                axios.post(`/api/v1/cart_item/${id}/update`, {
-                    quantity: quantity,
+            updateCartItemQuantity(cartItem) {
+                axios.post(`/api/v1/cart_item/${cartItem.id}/update`, {
+                    quantity: cartItem.quantity,
                 }).then((res) => {
                     EventBus.$emit('update-cart');
                     this.fetchCart();
