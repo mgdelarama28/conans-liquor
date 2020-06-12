@@ -57,19 +57,19 @@
     		<div class="row justify-content-end">
     			<div class="col col-lg-5 col-md-6 mt-5 cart-wrap">
     				<div class="cart-total mb-3">
-                        <h3>Cart Totals</h3>
+                        <h3>Cart Total</h3>
                         
     					<p class="d-flex">
     						<span>Subtotal</span>
     						<span>${{ cart.subtotal }}</span>
     					</p>
     					<p class="d-flex">
-    						<span>Delivery</span>
-    						<span>$0.00</span>
+    						<span>Delivery Fee</span>
+    						<span>${{ cart.delivery_fee }}</span>
     					</p>
     					<p class="d-flex">
-    						<span>Discount</span>
-    						<span>$0.00</span>
+    						<span>Discount ({{ cart.discount_percentage }}%)</span>
+    						<span class="text-danger">${{ cart.discount_amount }}</span>
     					</p>
     					<hr>
     					<p class="d-flex total-price">

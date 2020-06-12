@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Invoice;
 use App\Models\Users\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +12,8 @@ class Cart extends Model
         'session_id',
         'status',
         'subtotal',
+        'delivery_fee',
+        'discount',
         'total',
     ];
 
@@ -22,6 +25,11 @@ class Cart extends Model
     public function cartItems()
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
     }
 
     public function user()
@@ -39,6 +47,22 @@ class Cart extends Model
         return $subtotal = $this->cartItems->sum('total');
     }
 
+    public function getTotal()
+    {
+        $total = $this->getDiscountedPrice() + $this->delivery_fee;
+        return $total;
+    }
+
+    public function getDiscountedPrice()
+    {
+        return $this->getSubtotal() - $this->getDiscountAmount();
+    }
+
+    public function getDiscountAmount()
+    {
+        return $this->getSubtotal() * ($this->discount_percentage / 100);
+    }
+
     /**
      * Find the session cart
      * 
@@ -48,7 +72,7 @@ class Cart extends Model
     {
         return $this->with('cartItems.product')->where([
             'session_id' => session()->getId(),
-            'status' => 0,
+            'status' => 1,
         ])
         ->latest()
         ->first();

@@ -20,16 +20,9 @@ class CartController extends Controller
     public function index()
     {
         $cart = $this->cart->getCart();
-
-        $subtotal = 0;
-
-        // dd($cart->session_id);
-
-        // foreach($cart->cartItems as $cartItem):
-        //     $subtotal += $cartItem->total;
-        // endforeach;
-
         $cart->subtotal = $cart->getSubtotal();
+        $cart->discount_amount = $cart->getDiscountAmount();
+        $cart->total = $cart->getTotal();
         $cart->save();
 
         return response()->json([

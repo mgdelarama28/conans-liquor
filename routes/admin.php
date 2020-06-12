@@ -72,5 +72,9 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function() {
 		Route::post('/products', 'ProductController@store')->name('products.store');
 		Route::post('/products/{id}', 'ProductController@update')->name('products.update');
 		Route::get('/products/{id}/destroy', 'ProductController@destroy')->name('products.destroy');
+
+		/** Invoices */
+		Route::get('/invoices', 'InvoiceController@index')->name('invoices.index');
+		Route::get('/invoices/{id}', 'InvoiceController@show')->name('invoices.show');
 	});
 });

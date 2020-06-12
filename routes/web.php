@@ -18,11 +18,15 @@ Route::namespace('Web')->name('web.')->group(function() {
 	Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
 	Route::get('/contact-us', 'PageController@contact')->name('contact');
 
+	Route::post('/invoice', 'InvoiceController@store')->name('invoices.store');
+
 	Route::namespace('API')->name('api.')->prefix('api')->group(function() {
 		Route::post('v1/cart_item/{id}', 'CartItemController@store')->name('cart_items.store');
 		Route::post('v1/cart_item/{id}/update', 'CartItemController@update')->name('cart_items.update');
 		Route::delete('v1/cart_item/{id}', 'CartItemController@destroy')->name('cart_items.destroy');
 
 		Route::get('v1/cart', 'CartController@index')->name('cart.index');
+
+		Route::get('/v1/products', 'ProductController@index')->name('products.index');
 	});
 });

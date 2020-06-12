@@ -16,8 +16,11 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('session_id')->nullable();
-            $table->boolean('status')->default(0); /** 0 = Unpaid / 1 = Paid */
+            $table->boolean('status')->default(1); /** 0 = Inactive / 1 = Active */
             $table->decimal('subtotal', 9, 2)->default(0);
+            $table->decimal('delivery_fee', 9, 2)->default(10);
+            $table->unsignedInteger('discount_percentage')->default(20);
+            $table->decimal('discount_amount')->default(0);
             $table->decimal('total', 9, 2)->default(0);
             $table->timestamps();
         });

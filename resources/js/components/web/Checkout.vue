@@ -9,14 +9,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstname">First Name</label>
-                                        <input type="text" class="form-control" placeholder="" name="first_name" v-model="customer.first_name">
+                                        <input type="text" class="form-control" placeholder="" name="first_name" v-model="invoice.first_name">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="lastname">Last Name</label>
-                                        <input type="text" class="form-control" placeholder="" name="last_name" v-model="customer.last_name">
+                                        <input type="text" class="form-control" placeholder="" name="last_name" v-model="invoice.last_name">
                                     </div>
                                 </div>
                     
@@ -28,7 +28,7 @@
                                     <div class="select-wrap">
 
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="country" id="" class="form-control" v-model="customer.country">
+                                        <select name="country" id="" class="form-control" v-model="invoice.country">
                                             <option value="France">France</option>
                                             <option value="Italy">Italy</option>
                                             <option value="Philippines">Philippines</option>
@@ -44,7 +44,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="streetaddress">Street Address</label>
-                                    <input type="text" class="form-control" placeholder="House number and street name" name="street_address" v-model="customer.street_address">
+                                    <input type="text" class="form-control" placeholder="House number and street name" name="street_address" v-model="invoice.street_address">
                                 </div>
                             </div>
                             
@@ -53,14 +53,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="towncity">Town / City</label>
-                                    <input type="text" class="form-control" placeholder="" name="city" v-model="customer.city">
+                                    <input type="text" class="form-control" placeholder="" name="city" v-model="invoice.city">
                                 </div>
                             </div>
                         
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="postcodezip">Postcode / ZIP *</label>
-                                    <input type="text" class="form-control" placeholder="" name="zip_code" v-model="customer.zip_code">
+                                    <input type="text" class="form-control" placeholder="" name="zip_code" v-model="invoice.zip_code">
                                 </div>
                             </div>
                                 
@@ -68,15 +68,15 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" placeholder="" name="phone" v-model="customer.phone">
+                                    <label for="contact_number">Contact Number</label>
+                                    <input type="text" class="form-control" placeholder="" name="contact_number" v-model="invoice.contact_number">
                                 </div>
                             </div>
                     
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="emailaddress">Email Address</label>
-                                    <input type="text" class="form-control" placeholder="" name="email" v-model="customer.email">
+                                    <input type="text" class="form-control" placeholder="" name="email" v-model="invoice.email">
                                 </div>
                             </div>
 
@@ -106,20 +106,20 @@
                                 </p>
 
                                 <p class="d-flex">
-                                    <span>Delivery</span>
-                                    <span>$0.00</span>
+                                    <span>Delivery Fee</span>
+                                    <span>${{ cart.delivery_fee }}</span>
                                 </p>
                                         
                                 <p class="d-flex">
-                                    <span>Discount</span>
-                                    <span>$0.00</span>
+                                    <span>Discount ({{ cart.discount_percentage }}%)</span>
+                                    <span>${{ cart.discount_amount }}</span>
                                 </p>
 
                                 <hr>
 
                                 <p class="d-flex total-price">
                                     <span>Total</span>
-                                    <span>$17.60</span>
+                                    <span>${{ cart.total }}</span>
                                 </p>
                             </div>
                         </div>
@@ -131,7 +131,15 @@
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="radio">
-                                            <label><input type="radio" name="optradio" class="mr-2"> Direct Bank Tranfer</label>
+                                            <label><input type="radio" name="payment_method" v-model="invoice.payment_method" class="mr-2" value="Cash on Delivery">Cash on Delivery</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="radio">
+                                            <label><input type="radio" name="payment_method" class="mr-2"> Check Payment</label>
                                         </div>
                                     </div>
                                 </div>
@@ -139,28 +147,23 @@
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="radio">
-                                            <label><input type="radio" name="optradio" class="mr-2"> Check Payment</label>
+                                            <label><input type="radio" name="payment_method" class="mr-2"> Paypal</label>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio" class="mr-2"> Paypal</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                 -->
 
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="" class="mr-2"> I have read and accept the terms and conditions</label>
+                                            <label><input type="checkbox" value=""  class="mr-2"> I have read and accept the terms and conditions</label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <p><a href="#" class="btn btn-primary py-3 px-4">Place an order</a></p>
+                                <p>
+                                    <button class="btn btn-primary py-3 px-4" @click.prevent="checkout()">Place an order</button>
+                                    </p>
                             </div>
                         </div>
                     </div>
@@ -171,6 +174,8 @@
 </template>
 
 <script>
+    import EventBus from '../../EventBus';
+
     export default {
         mounted() {
             this.fetchCart();
@@ -178,16 +183,20 @@
 
         data() {
             return {
-                cart: {},
-                customer: {
-                    first_name: '',
+                cart: {
+                    id: '',
+                },
+                invoice: {
+                    // cart_id: this.cart.id,
                     last_name: '',
+                    first_name: '',
                     country: '',
                     street_address: '',
                     city: '',
                     zip_code: '',
-                    phone: '',
+                    contact_number: '',
                     email: '',
+                    payment_method: '',
                 },
             }
         },
@@ -198,6 +207,34 @@
                     this.cart = res.data.cart;
                 }).catch((err) => {
                     console.log(err);
+                });
+            },
+
+            checkout() {
+                Swal.fire({
+                    title: 'Check out?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.post(`/invoice`, this.invoice).then((res) => {
+                            EventBus.$emit('update-cart');
+                            this.fetchCart();
+                        }).catch((err) => {
+                            console.log(err);
+                        });
+
+                        Swal.fire(
+                            'Your order has been placed!',
+                            'Check your email for more details on your order.',
+                            'success'
+                        ).then(() => {
+                            window.location.href = '/';
+                        });
+                    }
                 });
             }
         },
