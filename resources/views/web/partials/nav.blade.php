@@ -18,18 +18,18 @@
                     <a href="about.html" class="nav-link">About</a>
                 </li>
 
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="{{ route('web.products.index') }}">Products</a>
                         <a class="dropdown-item" href="{{ route('web.cart.index') }}">Cart</a>
                     </div>
-                </li>
+                </li> --}}
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="blog.html" class="nav-link">Blog</a>
-                </li>
+                </li> --}}
                 
                 <li class="nav-item {{ Route::is('web.contact') ? 'active' : '' }}">
                     <a href="{{ route('web.contact') }}" class="nav-link">Contact</a>

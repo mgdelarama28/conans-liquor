@@ -28,5 +28,6 @@ Route::namespace('Web')->name('web.')->group(function() {
 		Route::get('v1/cart', 'CartController@index')->name('cart.index');
 
 		Route::get('/v1/products', 'ProductController@index')->name('products.index');
+		Route::get('/v1/products/{categoryId}', 'ProductController@filterByCategory')->name('products.filter_by_category');
 	});
 });

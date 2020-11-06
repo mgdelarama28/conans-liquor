@@ -7,9 +7,9 @@
                         <span class="flaticon-support"></span>
                     </div>
                     
-                    <div class="text">
-                        <h2>Online Support 24/7</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <div class="text text-center">
+                        <h2>Online 24/7</h2>
+                        <p>Our store is open for you anytime.</p>
                     </div>
                 </div>
             </div>
@@ -20,9 +20,9 @@
                         <span class="flaticon-cashback"></span>
                     </div>
                     
-                    <div class="text">
-                        <h2>Money Back Guarantee</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <div class="text text-center">
+                        <h2>High Quality</h2>
+                        <p>You can expect high quality products for your money.</p>
                     </div>
                 </div>
             </div>
@@ -34,8 +34,8 @@
                     </div>
                     
                     <div class="text">
-                        <h2>Free Shipping &amp; Return</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <h2>Free Shipping</h2>
+                        <p>We offer free shipping and returns.</p>
                     </div>
                 </div>
             </div>

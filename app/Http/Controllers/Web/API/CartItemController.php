@@ -20,7 +20,6 @@ class CartItemController extends Controller
 
     public function store(Request $request, $id)
     {
-
         if ($request->quantity):
             $quantity = $request->quantity;
         else: 
@@ -37,10 +36,12 @@ class CartItemController extends Controller
                 'product_id' => $product->id,
                 'cart_id' => $cart->id,
                 'quantity' => $quantity,	
-                'total' => $product->price,
+                'subtotal' => $product->price * $quantity,
+                'total' => $product->price * $quantity,
             ]);
         else:
             $cartItem->quantity += $quantity;
+            $cartItem->subtotal = $cartItem->quantity * $cartItem->product->price;
             $cartItem->total = $cartItem->quantity * $cartItem->product->price;
             $cartItem->save();
         endif;
@@ -68,9 +69,9 @@ class CartItemController extends Controller
     {
         $cart = Cart::where([
             'session_id' => session()->getId(),
-            'status' => 0,])
+            'status' => 1,])
             ->first();
-
+            
         $cartItem = CartItem::where([
             'id' => $id,
             'cart_id' => $cart->id,

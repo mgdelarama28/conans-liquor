@@ -7,6 +7,8 @@ use App\Helpers\CartHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
+use App\Mail\OrderPlaced;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -57,6 +59,7 @@ class InvoiceController extends Controller
         $cart->status = 0;
         $cart->save();
 
+        Mail::to($invoice->email)->send(new OrderPlaced($invoice));
         return $invoice;
     }
 

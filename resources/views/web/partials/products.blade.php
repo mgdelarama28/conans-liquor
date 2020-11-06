@@ -1,20 +1,14 @@
-<section class="ftco-section">
+<section class="ftco-section" id="products">
     <div class="container">
         <div class="row justify-content-center pb-5">
             <div class="col-md-7 heading-section text-center">
-                <span class="subheading">Our Delightful offerings</span>
-                <h2>Tastefully Yours</h2>
+                <h2>Our Products</h2>
             </div>
         </div>
             
         <products
             :products="{{ $products }}"
+            :categories="{{ $categories }}"
         ></products>
-            
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <a href="{{ route('web.products.index') }}" class="btn btn-primary d-block">View All Products <span class="fa fa-long-arrow-right"></span></a>
-            </div>
-        </div>
     </div>
 </section>

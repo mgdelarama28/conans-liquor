@@ -2242,7 +2242,7 @@ __webpack_require__.r(__webpack_exports__);
         zip_code: '',
         contact_number: '',
         email: '',
-        payment_method: ''
+        payment_method: 'Cash on Delivery'
       }
     };
   },
@@ -2363,171 +2363,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {//
@@ -2535,17 +2370,39 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     product: Object
   },
+  data: function data() {
+    return {
+      quantity: 1
+    };
+  },
   methods: {
     addToCart: function addToCart(id) {
-      var quantity = document.querySelector('#quantity').value;
+      var _this = this;
+
+      var quantity = Number.parseInt(document.querySelector('#quantity').value);
+      console.log(quantity);
       axios.post('/api/v1/cart_item/' + id, {
         quantity: quantity
       }).then(function (res) {
         _EventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('update-cart');
         Swal.fire('Added to cart!', 'This item has been added to your cart.', 'success');
+        _this.quantity = 1;
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    addQuantity: function addQuantity() {
+      if (this.quantity >= this.product.stock) {//
+      } else {
+        this.quantity++;
+      }
+    },
+    subtractQuantity: function subtractQuantity() {
+      if (this.quantity <= 0) {
+        this.quantity = 0;
+      } else {
+        this.quantity--;
+      }
     }
   }
 });
@@ -2598,16 +2455,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -2615,7 +2462,7 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchProducts();
   },
   props: {
-    isProductsPage: Boolean
+    categories: Array
   },
   data: function data() {
     return {
@@ -2637,21 +2484,10 @@ __webpack_require__.r(__webpack_exports__);
 
       url = url || "/api/v1/products";
       axios.get(url).then(function (res) {
-        _this.products = res.data.products.data;
-
-        _this.makePagination(res.data.products);
+        _this.products = res.data.products;
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    makePagination: function makePagination(products) {
-      var pagination = {
-        'current_page': products.current_page,
-        'last_page': products.last_page,
-        'prev_page_url': products.prev_page_url,
-        'next_page_url': products.next_page_url
-      };
-      this.pagination = pagination;
     }
   }
 });
@@ -41829,9 +41665,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "w-100" }),
-              _vm._v(" "),
-              _vm._m(1)
+              _c("div", { staticClass: "w-100" })
             ])
           ]),
           _vm._v(" "),
@@ -41921,7 +41755,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(2),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("p", [
                   _c(
@@ -41953,26 +41787,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "icon" }, [
       _c("span", { staticClass: "ion-ios-arrow-down" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "form-group mt-4" }, [
-        _c("div", { staticClass: "radio" }, [
-          _c("label", { staticClass: "mr-3" }, [
-            _c("input", { attrs: { type: "radio", name: "optradio" } }),
-            _vm._v(" Create an Account? ")
-          ]),
-          _vm._v(" "),
-          _c("label", [
-            _c("input", { attrs: { type: "radio", name: "optradio" } }),
-            _vm._v(" Ship to different address")
-          ])
-        ])
-      ])
     ])
   },
   function() {
@@ -42041,10 +41855,6 @@ var render = function() {
           _c("h3", [_vm._v(_vm._s(this.product.name))]),
           _vm._v(" "),
           _c("div", { staticClass: "rating d-flex" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
             _c("p", { staticClass: "text-left" }, [
               _c(
                 "a",
@@ -42067,20 +41877,38 @@ var render = function() {
             _c("span", [_vm._v("$" + _vm._s(this.product.price))])
           ]),
           _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              '\n                        On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.\n                    '
-            )
-          ]),
+          _c("p", [_vm._v(_vm._s(this.product.description))]),
           _vm._v(" "),
           _c("div", { staticClass: "row mt-4" }, [
-            _vm._m(2),
+            _c("div", { staticClass: "input-group col-md-6 d-flex mb-3" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.quantity,
+                    expression: "quantity"
+                  }
+                ],
+                staticClass: "quantity form-control input-number",
+                attrs: {
+                  type: "number",
+                  id: "quantity",
+                  name: "quantity",
+                  min: "1",
+                  max: this.product.stock
+                },
+                domProps: { value: _vm.quantity },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.quantity = $event.target.value
+                  }
+                }
+              })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "w-100" }),
             _vm._v(" "),
@@ -42116,500 +41944,11 @@ var render = function() {
             )
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(3)
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-left mr-4" }, [
-      _c("a", { staticClass: "mr-2", attrs: { href: "#" } }, [_vm._v("5.0")]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("span", { staticClass: "fa fa-star" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("span", { staticClass: "fa fa-star" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("span", { staticClass: "fa fa-star" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("span", { staticClass: "fa fa-star" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("span", { staticClass: "fa fa-star" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-left mr-4" }, [
-      _c(
-        "a",
-        {
-          staticClass: "mr-2",
-          staticStyle: { color: "#000" },
-          attrs: { href: "#" }
-        },
-        [
-          _vm._v("100 "),
-          _c("span", { staticStyle: { color: "#bbb" } }, [_vm._v("Rating")])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group col-md-6 d-flex mb-3" }, [
-      _c("span", { staticClass: "input-group-btn mr-2" }, [
-        _c(
-          "button",
-          {
-            staticClass: "quantity-left-minus btn",
-            attrs: { type: "button", "data-type": "minus", "data-field": "" }
-          },
-          [_c("i", { staticClass: "fa fa-minus" })]
-        )
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "quantity form-control input-number",
-        attrs: {
-          type: "text",
-          id: "quantity",
-          name: "quantity",
-          value: "1",
-          min: "1",
-          max: "100"
-        }
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "input-group-btn ml-2" }, [
-        _c(
-          "button",
-          {
-            staticClass: "quantity-right-plus btn",
-            attrs: { type: "button", "data-type": "plus", "data-field": "" }
-          },
-          [_c("i", { staticClass: "fa fa-plus" })]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-5" }, [
-      _c("div", { staticClass: "col-md-12 nav-link-wrap" }, [
-        _c(
-          "div",
-          {
-            staticClass: "nav nav-pills d-flex text-center",
-            attrs: {
-              id: "v-pills-tab",
-              role: "tablist",
-              "aria-orientation": "vertical"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active mr-lg-1",
-                attrs: {
-                  id: "v-pills-1-tab",
-                  "data-toggle": "pill",
-                  href: "#v-pills-1",
-                  role: "tab",
-                  "aria-controls": "v-pills-1",
-                  "aria-selected": "true"
-                }
-              },
-              [_vm._v("Description")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "nav-link mr-lg-1",
-                attrs: {
-                  id: "v-pills-2-tab",
-                  "data-toggle": "pill",
-                  href: "#v-pills-2",
-                  role: "tab",
-                  "aria-controls": "v-pills-2",
-                  "aria-selected": "false"
-                }
-              },
-              [_vm._v("Manufacturer")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "v-pills-3-tab",
-                  "data-toggle": "pill",
-                  href: "#v-pills-3",
-                  role: "tab",
-                  "aria-controls": "v-pills-3",
-                  "aria-selected": "false"
-                }
-              },
-              [_vm._v("Reviews")]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12 tab-wrap" }, [
-        _c(
-          "div",
-          {
-            staticClass: "tab-content bg-light",
-            attrs: { id: "v-pills-tabContent" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane fade show active",
-                attrs: {
-                  id: "v-pills-1",
-                  role: "tabpanel",
-                  "aria-labelledby": "day-1-tab"
-                }
-              },
-              [
-                _c("div", { staticClass: "p-4" }, [
-                  _c("h3", { staticClass: "mb-4" }, [
-                    _vm._v("Bacardi 151 Degree")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      'On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.'
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane fade",
-                attrs: {
-                  id: "v-pills-2",
-                  role: "tabpanel",
-                  "aria-labelledby": "v-pills-day-2-tab"
-                }
-              },
-              [
-                _c("div", { staticClass: "p-4" }, [
-                  _c("h3", { staticClass: "mb-4" }, [
-                    _vm._v("Manufactured By Liquor Store")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      'On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.'
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "tab-pane fade",
-                attrs: {
-                  id: "v-pills-3",
-                  role: "tabpanel",
-                  "aria-labelledby": "v-pills-day-3-tab"
-                }
-              },
-              [
-                _c("div", { staticClass: "row p-4" }, [
-                  _c("div", { staticClass: "col-md-7" }, [
-                    _c("h3", { staticClass: "mb-4" }, [_vm._v("23 Reviews")]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "review" }, [
-                      _c("div", {
-                        staticClass: "user-img",
-                        staticStyle: {
-                          "background-image": "url(images/person_1.jpg)"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "desc" }, [
-                        _c("h4", [
-                          _c("span", { staticClass: "text-left" }, [
-                            _vm._v("Jacob Webb")
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _vm._v("25 April 2020")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "star" }, [
-                          _c("span", [
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" })
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _c(
-                              "a",
-                              { staticClass: "reply", attrs: { href: "#" } },
-                              [_c("i", { staticClass: "icon-reply" })]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
-                          )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "review" }, [
-                      _c("div", {
-                        staticClass: "user-img",
-                        staticStyle: {
-                          "background-image": "url(images/person_2.jpg)"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "desc" }, [
-                        _c("h4", [
-                          _c("span", { staticClass: "text-left" }, [
-                            _vm._v("Jacob Webb")
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _vm._v("25 April 2020")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "star" }, [
-                          _c("span", [
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" })
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _c(
-                              "a",
-                              { staticClass: "reply", attrs: { href: "#" } },
-                              [_c("i", { staticClass: "icon-reply" })]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
-                          )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "review" }, [
-                      _c("div", {
-                        staticClass: "user-img",
-                        staticStyle: {
-                          "background-image": "url(images/person_3.jpg)"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "desc" }, [
-                        _c("h4", [
-                          _c("span", { staticClass: "text-left" }, [
-                            _vm._v("Jacob Webb")
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _vm._v("25 April 2020")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "star" }, [
-                          _c("span", [
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "fa fa-star" })
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "text-right" }, [
-                            _c(
-                              "a",
-                              { staticClass: "reply", attrs: { href: "#" } },
-                              [_c("i", { staticClass: "icon-reply" })]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov"
-                          )
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-4" }, [
-                    _c("div", { staticClass: "rating-wrap" }, [
-                      _c("h3", { staticClass: "mb-4" }, [
-                        _vm._v("Give a Review")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "star" }, [
-                        _c("span", [
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(
-                            "\n                                        (98%)\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("20 Reviews")])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "star" }, [
-                        _c("span", [
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(
-                            "\n                                        (85%)\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("10 Reviews")])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "star" }, [
-                        _c("span", [
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(
-                            "\n                                        (98%)\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("5 Reviews")])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "star" }, [
-                        _c("span", [
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(
-                            "\n                                        (98%)\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("0 Reviews")])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "star" }, [
-                        _c("span", [
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fa fa-star" }),
-                          _vm._v(
-                            "\n                                        (98%)\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("0 Reviews")])
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          ]
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42632,6 +41971,46 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "row mb-4" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-md-12 d-flex justify-content-end align-items-center"
+        },
+        [
+          _c("h4", { staticClass: "product-select mr-3" }, [
+            _vm._v("Filter By Category:")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "selectpicker",
+              on: {
+                change: function($event) {
+                  return _vm.fetchProducts(
+                    "/api/v1/products/" + $event.target.value
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("All Products")]),
+              _vm._v(" "),
+              _vm._l(this.categories, function(category) {
+                return _c(
+                  "option",
+                  { key: category.id, domProps: { value: category.id } },
+                  [_vm._v(_vm._s(category.name))]
+                )
+              })
+            ],
+            2
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },
@@ -42666,8 +42045,6 @@ var render = function() {
                       [_c("span", { staticClass: "flaticon-shopping-bag" })]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true),
-                    _vm._v(" "),
                     _c(
                       "a",
                       {
@@ -42697,96 +42074,10 @@ var render = function() {
         ])
       }),
       0
-    ),
-    _vm._v(" "),
-    this.isProductsPage
-      ? _c("div", { staticClass: "row mt-5" }, [
-          _c("div", { staticClass: "col text-center" }, [
-            _c("div", { staticClass: "block-27" }, [
-              _c(
-                "ul",
-                [
-                  _c(
-                    "li",
-                    { class: { disabled: !_vm.pagination.previous_page_url } },
-                    [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.fetchProducts(
-                                _vm.pagination.prev_page_url
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v("<")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.pagination.last_page, function(index) {
-                    return _c("li", { key: index }, [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.fetchProducts(
-                                "/api/v1/products?page=" + index
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v(_vm._s(index))]
-                      )
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.fetchProducts(
-                              _vm.pagination.next_page_url
-                            )
-                          }
-                        }
-                      },
-                      [_vm._v(">")]
-                    )
-                  ])
-                ],
-                2
-              )
-            ])
-          ])
-        ])
-      : _vm._e()
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "d-flex align-items-center justify-content-center",
-        attrs: { href: "#" }
-      },
-      [_c("span", { staticClass: "flaticon-heart" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42874,7 +42165,7 @@ var render = function() {
                                 type: "number",
                                 name: "quantity",
                                 min: "1",
-                                max: "100"
+                                max: "1000"
                               },
                               domProps: { value: cartItem.quantity },
                               on: {
@@ -42896,7 +42187,9 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v("$" + _vm._s(cartItem.total))]),
+                        _c("td", [
+                          _vm._v("$" + _vm._s(cartItem.total.toLocaleString()))
+                        ]),
                         _vm._v(" "),
                         _c("td", [
                           _c(

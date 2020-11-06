@@ -5,13 +5,13 @@
 
 	@include('web.partials.services')
 
-	@include('web.partials.about')
+	{{-- @include('web.partials.about') --}}
 
 	@include('web.partials.categories')
 
 	@include('web.partials.products')
 
-	@include('web.partials.testimonials')
+	{{-- @include('web.partials.testimonials') --}}
 		
-	@include('web.partials.recent_blogs')
+	{{-- @include('web.partials.recent_blogs') --}}
 @endsection

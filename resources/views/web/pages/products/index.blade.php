@@ -17,23 +17,9 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row mb-4">
-                        <div class="col-md-12 d-flex justify-content-between align-items-center">
-                            <h4 class="product-select">Select Types of Products</h4>
-                            
-                            <select class="selectpicker" multiple>
-                                <option>Brandy</option>
-                                <option>Gin</option>
-                                <option>Rum</option>
-                                <option>Tequila</option>
-                                <option>Vodka</option>
-                                <option>Whiskey</option>
-                            </select>
-                        </div>
-                    </div>
-                        
+                <div class="col-md-12">                        
                     <products
+                    :categories="{{ $categories }}"
                     :is-products-page="true"
                     ></products>
                 </div>

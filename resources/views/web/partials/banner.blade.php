@@ -6,7 +6,7 @@
             <div class="col-md-8 d-flex align-items-end">
                 <div class="text w-100 text-center">
                     <h1 class="mb-4"><span>Killer Liquor Just Right Here</span>.</h1>
-                    <p><a href="{{ route('web.products.index') }}" class="btn btn-primary py-2 px-4">Shop Now</a>
+                    <p><a href="#products" class="btn btn-primary py-2 px-4">Shop Now</a>
                 </div>
             </div>
         </div>

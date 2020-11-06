@@ -32,11 +32,11 @@
                               
                                 <td class="quantity">
                                         <div class="input-group">
-                                        <input type="number" name="quantity" class="form-control text-center" v-model="cartItem.quantity" min="1" max="100" @change="updateCartItemQuantity(cartItem)">
+                                        <input type="number" name="quantity" class="form-control text-center" v-model="cartItem.quantity" min="1" max="1000" @change="updateCartItemQuantity(cartItem)">
                                     </div>
                                 </td>
                               
-                                <td>${{ cartItem.total }}</td>
+                                <td>${{ cartItem.total.toLocaleString() }}</td>
         
                                 <td>
                                     <button type="button" class="btn btn-danger" aria-label="Close" @click.prevent="removeCartItem(cartItem.id)">

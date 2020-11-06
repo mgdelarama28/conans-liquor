@@ -82,14 +82,14 @@
 
                             <div class="w-100"></div>
 
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="form-group mt-4">
                                     <div class="radio">
                                         <label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>
                                         <label><input type="radio" name="optradio"> Ship to different address</label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 	                </form><!-- END -->
 
@@ -196,7 +196,7 @@
                     zip_code: '',
                     contact_number: '',
                     email: '',
-                    payment_method: '',
+                    payment_method: 'Cash on Delivery',
                 },
             }
         },

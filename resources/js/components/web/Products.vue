@@ -1,5 +1,16 @@
 <template>
     <div>
+        <div class="row mb-4">
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+                <h4 class="product-select mr-3">Filter By Category:</h4>
+                
+                <select class="selectpicker" @change="fetchProducts(`/api/v1/products/${$event.target.value}`)">
+                    <option value="">All Products</option>
+                    <option v-for="category in this.categories" :key="category.id" :value="category.id">{{ category.name }}</option>
+                </select>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-3 d-flex" v-for="product in products" :key="product.id">
                 <div class="product">
@@ -7,7 +18,6 @@
                         <div class="desc">
                             <p class="meta-prod d-flex">
                                 <a href="#" class="d-flex align-items-center justify-content-center" @click.prevent="addToCart(product.id)"><span class="flaticon-shopping-bag"></span></a>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-heart"></span></a>
                                 <a :href="`/products/${product.id}`" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
                             </p>
                         </div>
@@ -18,26 +28,6 @@
                         <h2>{{ product.name }}</h2>
                         <span class="price">${{ product.price }}</span>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-5" v-if="this.isProductsPage">
-            <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li :class="{ disabled: !pagination.previous_page_url }">
-                            <a href="#" @click="fetchProducts(pagination.prev_page_url)">&lt;</a>
-                        </li>
-
-                        <li v-for="index in pagination.last_page" :key="index">
-                            <a href="#" @click.prevent="fetchProducts(`/api/v1/products?page=${index}`)">{{ index }}</a>
-                        </li>
-
-                        <li>
-                            <a href="#" @click="fetchProducts(pagination.next_page_url)">&gt;</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -54,7 +44,7 @@
         },
 
         props: {
-            isProductsPage: Boolean,
+            categories: Array,
         },
 
         data() {
@@ -82,24 +72,11 @@
                 url = url || `/api/v1/products`;
 
                 axios.get(url).then((res) => {
-                    this.products = res.data.products.data;
-                    this.makePagination(res.data.products);
-
+                    this.products = res.data.products;
                 }).catch((err) => {
                     console.log(err);
                 });
             },
-
-            makePagination(products) {
-				let pagination = {
-					'current_page': products.current_page,
-					'last_page': products.last_page,
-					'prev_page_url': products.prev_page_url,
-					'next_page_url': products.next_page_url,
-				};
-
-				this.pagination = pagination;
-			},
         },
     }
 </script>
