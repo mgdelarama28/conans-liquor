@@ -42023,7 +42023,10 @@ var render = function() {
                 staticClass:
                   "img d-flex align-items-center justify-content-center",
                 style: {
-                  backgroundImage: "url(/storage/" + product.image_path + ")"
+                  backgroundImage:
+                    "url(https://conans-liquor.s3.ap-southeast-1.amazonaws.com/" +
+                    product.image_path +
+                    ")"
                 }
               },
               [

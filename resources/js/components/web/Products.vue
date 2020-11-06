@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-3 d-flex" v-for="product in products" :key="product.id">
                 <div class="product">
-                    <div class="img d-flex align-items-center justify-content-center" :style="{ backgroundImage: `url(/storage/${product.image_path})` }">
+                    <div class="img d-flex align-items-center justify-content-center" :style="{ backgroundImage: `url(https://conans-liquor.s3.ap-southeast-1.amazonaws.com/${product.image_path})` }">
                         <div class="desc">
                             <p class="meta-prod d-flex">
                                 <a href="#" class="d-flex align-items-center justify-content-center" @click.prevent="addToCart(product.id)"><span class="flaticon-shopping-bag"></span></a>

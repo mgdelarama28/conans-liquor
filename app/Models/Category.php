@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
@@ -28,6 +29,6 @@ class Category extends Model
      */
     public function renderImage()
     {
-        return asset('storage/' . $this->image_path);
+        return Storage::disk('s3')->url($this->image_path);
     }
 }
