@@ -11,6 +11,6 @@ class SamplesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Sample::class, 20)->create();
+        // factory(App\Models\Sample::class, 20)->create();
     }
 }
