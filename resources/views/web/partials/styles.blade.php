@@ -2,13 +2,13 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="{{ asset('css/web/animate.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/animate.css') }}">
 
-<link rel="stylesheet" href="{{ asset('css/web/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/web/owl.theme.default.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/web/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/magnific-popup.css') }}">
 
-<link rel="stylesheet" href="{{ asset('css/web/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/web/flaticon.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/style.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/web/flaticon.css') }}">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
