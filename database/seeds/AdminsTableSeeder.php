@@ -11,7 +11,7 @@ class AdminsTableSeeder extends Seeder
 			'first_name' => 'App',
 			'last_name' => 'Admin',
 			'email' => 'admin@admin.com',
-			'password' => 'password',
+			'password' => 'Monday#3conansliquor',
 		],
 	];
 

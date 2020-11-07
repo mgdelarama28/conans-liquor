@@ -18,7 +18,7 @@
                         <tbody>
 						    <tr class="alert" role="alert" v-for="cartItem in cart.cart_items" :key="cartItem.id">
 						    	<td>
-						    		<div class="img" :style="{ backgroundImage: `url(/storage/${cartItem.product.image_path})` }"></div>
+						    		<div class="img" :style="{ backgroundImage: `url(https://conans-liquor.s3.ap-southeast-1.amazonaws.com/${cartItem.product.image_path})` }"></div>
 						    	</td>
                               
                                 <td>

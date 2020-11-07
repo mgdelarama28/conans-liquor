@@ -42121,7 +42121,7 @@ var render = function() {
                             staticClass: "img",
                             style: {
                               backgroundImage:
-                                "url(/storage/" +
+                                "url(https://conans-liquor.s3.ap-southeast-1.amazonaws.com/" +
                                 cartItem.product.image_path +
                                 ")"
                             }
