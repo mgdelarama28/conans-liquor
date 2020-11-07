@@ -12,8 +12,6 @@ class Cart extends Model
         'session_id',
         'status',
         'subtotal',
-        'delivery_fee',
-        'discount',
         'total',
     ];
 
@@ -49,18 +47,8 @@ class Cart extends Model
 
     public function getTotal()
     {
-        $total = $this->getDiscountedPrice() + $this->delivery_fee;
+        $total = $this->getSubtotal();
         return $total;
-    }
-
-    public function getDiscountedPrice()
-    {
-        return $this->getSubtotal() - $this->getDiscountAmount();
-    }
-
-    public function getDiscountAmount()
-    {
-        return $this->getSubtotal() * ($this->discount_percentage / 100);
     }
 
     /**

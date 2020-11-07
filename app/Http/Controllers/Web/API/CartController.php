@@ -21,7 +21,6 @@ class CartController extends Controller
     {
         $cart = $this->cart->getCart();
         $cart->subtotal = $cart->getSubtotal();
-        $cart->discount_amount = $cart->getDiscountAmount();
         $cart->total = $cart->getTotal();
         $cart->save();
 

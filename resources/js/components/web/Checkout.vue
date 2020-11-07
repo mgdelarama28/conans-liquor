@@ -107,12 +107,12 @@
 
                                 <p class="d-flex">
                                     <span>Delivery Fee</span>
-                                    <span>${{ cart.delivery_fee }}</span>
+                                    <span>$ 0.00</span>
                                 </p>
                                         
                                 <p class="d-flex">
-                                    <span>Discount ({{ cart.discount_percentage }}%)</span>
-                                    <span>${{ cart.discount_amount }}</span>
+                                    <span>Discount (0%)</span>
+                                    <span>$ 0.00</span>
                                 </p>
 
                                 <hr>

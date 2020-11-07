@@ -41681,21 +41681,9 @@ var render = function() {
                   _c("span", [_vm._v("$" + _vm._s(_vm.cart.subtotal))])
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "d-flex" }, [
-                  _c("span", [_vm._v("Delivery Fee")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("$" + _vm._s(_vm.cart.delivery_fee))])
-                ]),
+                _vm._m(1),
                 _vm._v(" "),
-                _c("p", { staticClass: "d-flex" }, [
-                  _c("span", [
-                    _vm._v(
-                      "Discount (" + _vm._s(_vm.cart.discount_percentage) + "%)"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("$" + _vm._s(_vm.cart.discount_amount))])
-                ]),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
@@ -41754,7 +41742,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("p", [
                   _c(
@@ -41786,6 +41774,26 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "icon" }, [
       _c("span", { staticClass: "ion-ios-arrow-down" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "d-flex" }, [
+      _c("span", [_vm._v("Delivery Fee")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$ 0.00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "d-flex" }, [
+      _c("span", [_vm._v("Discount (0%)")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$ 0.00")])
     ])
   },
   function() {
@@ -42229,17 +42237,7 @@ var render = function() {
               _c("span", [_vm._v("$" + _vm._s(_vm.cart.delivery_fee))])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "d-flex" }, [
-              _c("span", [
-                _vm._v(
-                  "Discount (" + _vm._s(_vm.cart.discount_percentage) + "%)"
-                )
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-danger" }, [
-                _vm._v("$" + _vm._s(_vm.cart.discount_amount))
-              ])
-            ]),
+            _vm._m(2),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -42294,6 +42292,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { attrs: { "aria-hidden": "true" } }, [
       _c("i", { staticClass: "fa fa-close" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "d-flex" }, [
+      _c("span", [_vm._v("Discount (0%)")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("$ 0.00")])
     ])
   }
 ]
