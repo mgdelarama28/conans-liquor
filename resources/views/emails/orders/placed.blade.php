@@ -4,15 +4,16 @@
 The body of your message.
 
 | Product Name                   | Unit Price                      | Quantity                  | SubTotal               |
-|:------------------------------:|:-------------------------------:|:-------------------------:|:----------------------:|
-
+|:-------------------------------|:-------------------------------:|:-------------------------:|:----------------------:|
 @foreach($invoice->cart->cartItems as $cartItem)
 | {{ $cartItem->product->name }} | {{ $cartItem->product->price }} | {{ $cartItem->quantity }} | {{ $cartItem->total }} |
 @endforeach
-|                                |                                 | **Total**                 |   {{ $invoice->cart->total }}       |
+|                                |                                 | Delivery Fee              |   $ 0.00               |
+|                                |                                 | Discount (0%)             |   $ 0.00               |
+|                                |                                 | **Total**                 |   {{ $invoice->cart->total }} |
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => '/'])
+Back to Conan's Liquor
 @endcomponent
 
 Thanks,<br>
