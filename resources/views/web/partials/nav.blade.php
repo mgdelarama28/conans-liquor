@@ -14,10 +14,10 @@
                     <a href="{{ route('web.index') }}" class="nav-link">Home</a>
                 </li>
                 
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
+                <li class="nav-item {{ Route::is('web.about') ? 'active' : '' }}">
+                    <a href="{{ route('web.about') }}" class="nav-link">About</a>
                 </li>
-
+                
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
                     

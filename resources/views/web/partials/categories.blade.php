@@ -1,4 +1,4 @@
-<section class="ftco-section pb-0">
+<section class="ftco-section pb-0 mb-5">
     <div class="container">
         <div class="row">
             @foreach($categories as $category)

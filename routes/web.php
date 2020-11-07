@@ -17,6 +17,7 @@ Route::namespace('Web')->name('web.')->group(function() {
 	Route::get('/shopping-cart', 'CartController@index')->name('cart.index');
 	Route::get('/checkout', 'CartController@checkout')->name('cart.checkout');
 	Route::get('/contact-us', 'PageController@contact')->name('contact');
+	Route::get('/about', 'PageController@about')->name('about');
 
 	Route::post('/invoice', 'InvoiceController@store')->name('invoices.store');
 

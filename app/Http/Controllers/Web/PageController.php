@@ -20,6 +20,15 @@ class PageController extends Controller
         ]);
     }
 
+    public function about()
+    {
+        $categories = Category::all();
+
+        return view('web.pages.about', [
+            'categories' => $categories,
+        ]);
+    }
+
     public function contact()
     {
         return view('web.pages.contact');
