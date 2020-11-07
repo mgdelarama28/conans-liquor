@@ -64,11 +64,11 @@
     					</p>
     					<p class="d-flex">
     						<span>Delivery Fee</span>
-    						<span>${{ cart.delivery_fee }}</span>
+    						<span>$ 0.00</span>
     					</p>
     					<p class="d-flex">
     						<span>Discount (0%)</span>
-    						<span class="text-danger">$ 0.00</span>
+    						<span>$ 0.00</span>
     					</p>
     					<hr>
     					<p class="d-flex total-price">

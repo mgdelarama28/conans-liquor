@@ -93,8 +93,6 @@
                         </div>
 	                </form><!-- END -->
 
-
-
                     <div class="row mt-5 pt-3 d-flex">
                         <div class="col-md-6 d-flex">
                             <div class="cart-detail cart-total p-3 p-md-4">
@@ -136,34 +134,19 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="payment_method" class="mr-2"> Check Payment</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="payment_method" class="mr-2"> Paypal</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                 -->
-
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""  class="mr-2"> I have read and accept the terms and conditions</label>
+                                            <label>
+                                                <input type="checkbox" value="" class="mr-2" @click="toggleTermsAgreed()">I have read and accept the terms and conditions
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <p>
-                                    <button class="btn btn-primary py-3 px-4" @click.prevent="checkout()">Place an order</button>
-                                    </p>
+                                    <button class="btn btn-primary py-3 px-4" @click.prevent="checkout()" :disabled="!termsAgreed">Place an order</button>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -198,6 +181,7 @@
                     email: '',
                     payment_method: 'Cash on Delivery',
                 },
+                termsAgreed: false,
             }
         },
 
@@ -236,6 +220,10 @@
                         });
                     }
                 });
+            },
+
+            toggleTermsAgreed(x) {
+                this.termsAgreed = !this.termsAgreed;
             }
         },
     }

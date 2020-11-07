@@ -2205,23 +2205,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -2243,7 +2226,8 @@ __webpack_require__.r(__webpack_exports__);
         contact_number: '',
         email: '',
         payment_method: 'Cash on Delivery'
-      }
+      },
+      termsAgreed: false
     };
   },
   methods: {
@@ -2280,6 +2264,9 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    },
+    toggleTermsAgreed: function toggleTermsAgreed(x) {
+      this.termsAgreed = !this.termsAgreed;
     }
   }
 });
@@ -41742,13 +41729,33 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(3),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "checkbox" }, [
+                      _c("label", [
+                        _c("input", {
+                          staticClass: "mr-2",
+                          attrs: { type: "checkbox", value: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.toggleTermsAgreed()
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "I have read and accept the terms and conditions\n                                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("p", [
                   _c(
                     "button",
                     {
                       staticClass: "btn btn-primary py-3 px-4",
+                      attrs: { disabled: !_vm.termsAgreed },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -41794,24 +41801,6 @@ var staticRenderFns = [
       _c("span", [_vm._v("Discount (0%)")]),
       _vm._v(" "),
       _c("span", [_vm._v("$ 0.00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "checkbox" }, [
-          _c("label", [
-            _c("input", {
-              staticClass: "mr-2",
-              attrs: { type: "checkbox", value: "" }
-            }),
-            _vm._v(" I have read and accept the terms and conditions")
-          ])
-        ])
-      ])
     ])
   }
 ]
@@ -42231,13 +42220,9 @@ var render = function() {
               _c("span", [_vm._v("$" + _vm._s(_vm.cart.subtotal))])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "d-flex" }, [
-              _c("span", [_vm._v("Delivery Fee")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("$" + _vm._s(_vm.cart.delivery_fee))])
-            ]),
-            _vm._v(" "),
             _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -42299,9 +42284,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "d-flex" }, [
+      _c("span", [_vm._v("Delivery Fee")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$ 0.00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "d-flex" }, [
       _c("span", [_vm._v("Discount (0%)")]),
       _vm._v(" "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("$ 0.00")])
+      _c("span", [_vm._v("$ 0.00")])
     ])
   }
 ]
