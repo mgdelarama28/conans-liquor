@@ -2590,7 +2590,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -42135,16 +42134,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [
                           _c("div", { staticClass: "email" }, [
-                            _c("span", [_vm._v(_vm._s(cartItem.product.name))]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                _vm._s(
-                                  cartItem.product.description ||
-                                    "No description written."
-                                )
-                              )
-                            ])
+                            _c("span", [_vm._v(_vm._s(cartItem.product.name))])
                           ])
                         ]),
                         _vm._v(" "),

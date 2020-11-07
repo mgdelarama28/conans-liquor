@@ -24,7 +24,6 @@
                                 <td>
                                     <div class="email">
                                         <span>{{ cartItem.product.name }}</span>
-                                        <span>{{ cartItem.product.description || 'No description written.' }}</span>
                                     </div>
                                 </td>
 
